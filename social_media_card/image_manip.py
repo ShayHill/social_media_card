@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# last modified: 221110 09:35:08
+# last modified: 221112 15:01:54
 """Alter the image for LinkedIn, Facebook, and Twitter.
 
 :author: Shay Hill
@@ -30,7 +30,7 @@ def pad_image(
     padded = Image.new(
         image.mode,
         (image.width + left + right, image.height + top + bottom),
-        (255, 255, 255, 255),
+        (255, 255, 255, 0)
     )
     padded.paste(image, (left, top))
     return padded
