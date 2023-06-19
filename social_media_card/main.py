@@ -1,13 +1,10 @@
-#!/usr/bin/env python3
-# last modified: 221110 14:12:13
-"""HTML template for social media card.
+"""Write clickable images adn HTML for social media cards.
 
 :author: Shay Hill
 :created: 2022-11-09
 """
 
 from pathlib import Path
-from typing import Optional
 
 from social_media_card.html_template import write_social_media_card_html
 from social_media_card.image_manip import (
@@ -25,8 +22,8 @@ def write_social_media_card(
     url: str,
     remote_image_dir: str,
     local_image_path: str | Path,
-    banner_path: Optional[str | Path] = None,
-    banner_padding: Optional[int] = None,
+    banner_path: str | Path | None = None,
+    banner_padding: int | None = None,
     padding: int = 0,
 ) -> None:
     """Write the social media card to the output directories.
@@ -37,7 +34,7 @@ def write_social_media_card(
         characters to avoid warnings.
     :param url: The url to which the card will link.
     :param remote_image_dir: The directory on the remote server where the images will
-        be hosted online. E.g. `https://example.com/images/`.
+        be hosted online. E.g. `https://example.com/images/`.
     :param local_image_path: The path to the image on the local machine.
 
     :param banner_path: The path to an optional banner image. This will be added on

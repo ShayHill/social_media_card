@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-# last modified: 221112 15:01:54
 """Alter the image for LinkedIn, Facebook, and Twitter.
 
 :author: Shay Hill
@@ -7,7 +5,6 @@
 """
 
 from pathlib import Path
-from typing import Optional
 
 from PIL import Image
 
@@ -30,7 +27,7 @@ def pad_image(
     padded = Image.new(
         image.mode,
         (image.width + left + right, image.height + top + bottom),
-        (255, 255, 255, 0)
+        (255, 255, 255, 0),
     )
     padded.paste(image, (left, top))
     return padded
@@ -86,7 +83,6 @@ def _add_banner_layer(image: Image.Image, banner: Image.Image) -> Image.Image:
     will not have an alpha channel unless the input image has one. E.g., this will
     layer a transparent png over a jpg, and the output will be a jpg.
     """
-    assert image.width == banner.width
     banner_layer = Image.new("RGBA", image.size, (255, 255, 255, 0))
     banner_layer.paste(banner.convert("RGBA"))
     with_banner = Image.alpha_composite(image.convert("RGBA"), banner_layer)
@@ -96,8 +92,8 @@ def _add_banner_layer(image: Image.Image, banner: Image.Image) -> Image.Image:
 
 def get_image_with_banner(
     image_path: str | Path,
-    banner_path: Optional[str | Path],
-    banner_padding: Optional[int],
+    banner_path: str | Path | None = None,
+    banner_padding: int | None = None,
 ) -> Image.Image:
     """Return the image with the banner pasted on top.
 
