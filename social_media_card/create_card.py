@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-# last modified: 221116 18:10:13
 """Call main.write_social_media_card() to create social media cards.
 
 :author: Shay Hill

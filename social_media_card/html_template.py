@@ -1,18 +1,16 @@
-#!/usr/bin/env python3
-# last modified: 221110 11:39:07
-"""HTML template for social media card.
+"""Fill HTML template for social media card.
 
 :author: Shay Hill
 :created: 2022-11-10
 """
 
 
+from datetime import datetime
 from string import Template
 
 from PIL import Image
 
 from social_media_card.paths import HTML_TEMPLATE, FilePaths
-from datetime import datetime
 
 
 def write_social_media_card_html(
@@ -20,6 +18,7 @@ def write_social_media_card_html(
 ) -> None:
     """Write social media card HTML to file.
 
+    :param author: author of the page
     :param title: title of the page
     :param description: description of the page
     :param url: URL to which the card will redirect
@@ -32,7 +31,7 @@ def write_social_media_card_html(
     image_width, image_height = Image.open(paths.output_image_path).size
     date = datetime.now().strftime("%Y-%m-%d")
 
-    with open(HTML_TEMPLATE, encoding="utf-8") as f:
+    with HTML_TEMPLATE.open(encoding="utf-8") as f:
         template = Template("".join(f.readlines()))
     html = template.substitute(
         today=date,
@@ -45,5 +44,5 @@ def write_social_media_card_html(
         image_width=image_width,
         image_height=image_height,
     )
-    with open(paths.output_html_path, "w") as file:
+    with paths.output_html_path.open("w", encoding="utf-8") as file:
         _ = file.write(html)

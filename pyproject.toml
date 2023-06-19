@@ -10,6 +10,9 @@ packages = [{include = "social_media_card"}]
 [tool.poetry.dependencies]
 python = "^3.9"
 Pillow = "^9.5.0"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.3.3"
 commitizen = "^3.3.0"
 
 [build-system]
@@ -29,7 +32,7 @@ version_files = [
 include = ["src"]
 exclude = ["**/__pycache__.py"]
 
-pythonVersion = "3.9"
+pythonVersion = "3.10"
 pythonPlatform = "Any"
 
 typeCheckingMode = "strict"
@@ -43,4 +46,4 @@ reportUnnecessaryTypeIgnoreComment = true
 reportUnusedCallResult = true
 
 venvPath = "C:\\Users\\shaya\\AppData\\Local\\pypoetry\\Cache\\virtualenvs"
-venv = "C:\\Users\\shaya\\AppData\\Local\\pypoetry\\Cache\\virtualenvs\\social_media_card_projects-C8poF7An"
+venv = "C:\\Users\\shaya\\AppData\\Local\\pypoetry\\Cache\\virtualenvs\\social-media-card-LP8zMKYt-py3.11"

@@ -1,13 +1,11 @@
-#!/usr/bin/env python3
-# last modified: 221110 13:47:47
 """Paths to local files and directories and remote file urls.
 
 :author: Shay Hill
 :created: 2022-11-10
 """
 
-from pathlib import Path
 from dataclasses import dataclass
+from pathlib import Path
 from urllib.parse import urljoin
 
 _PROJECT = Path(__file__, "..", "..").resolve()
@@ -25,7 +23,6 @@ HTML_TEMPLATE = RESOURCES / "template.html"
 # image path when calling `write_social_media_card`. It's not used in the code.
 INPUT_IMAGES = _BINARIES / "input_images"
 INPUT_IMAGES.mkdir(parents=True, exist_ok=True)
-
 
 
 def _twitterize_filename(filename: str | Path) -> str:
