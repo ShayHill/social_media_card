@@ -1,6 +1,46 @@
-[tool.isort]
-profile = "black"
+[tool.poetry]
+name = "social-media-card"
+version = "0.1.0"
+description = "Create clickable images for social media"
+authors = ["Shay Hill <shay_public@hotmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "social_media_card"}]
 
-[tool.pytest.ini_options]
-#addopts = "-rfEX -p pytester --strict-markers --ignore=my_triangulate_image/my_geometry --ignore=my_geometry"
-pythonpath = ["social_media_cards"]
+[tool.poetry.dependencies]
+python = "^3.9"
+Pillow = "^9.5.0"
+commitizen = "^3.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.1.0"
+tag_format = "$version"
+major-version-zero = true
+version_files = [
+    "pyproject.toml:^version"
+]
+
+[tool.pyright]
+include = ["src"]
+exclude = ["**/__pycache__.py"]
+
+pythonVersion = "3.9"
+pythonPlatform = "Any"
+
+typeCheckingMode = "strict"
+reportShadowedImports = true
+reportCallInDefaultInitializer = true
+reportImplicitStringConcatenation = true
+# reportMissingSuperCall = true
+reportPropertyTypeMismatch = true
+reportUninitializedInstanceVariable = true
+reportUnnecessaryTypeIgnoreComment = true
+reportUnusedCallResult = true
+
+venvPath = "C:\\Users\\shaya\\AppData\\Local\\pypoetry\\Cache\\virtualenvs"
+venv = "C:\\Users\\shaya\\AppData\\Local\\pypoetry\\Cache\\virtualenvs\\social_media_card_projects-C8poF7An"
