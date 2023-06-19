@@ -24,6 +24,8 @@ def write_social_media_card(
     url: str,
     remote_image_dir: str,
     local_image_path: str | Path,
+    output_image_dir: str | Path,
+    output_html_dir: str | Path,
     banner_path: str | Path | None = None,
     banner_padding: int | None = None,
     padding: int = 0,
@@ -38,6 +40,10 @@ def write_social_media_card(
     :param remote_image_dir: The directory on the remote server where the images will
         be hosted online. E.g. `https://example.com/images/`.
     :param local_image_path: The path to the image on the local machine.
+    :param output_image_dir: output images will be written here
+    :param output_html_dir: (optional) output html will be written here. If not
+        given, output_image_dir will be used. The flexibility is here for those who
+        like to keep binaries (output images) and text files (output html) separate.
 
     :param banner_path: The path to an optional banner image. This will be added on
         top of the input image.
@@ -55,7 +61,8 @@ def write_social_media_card(
         - writes two images to OUTPUT_IMAGES: one for LinkedIn and one for Twitter
         - writes a file to OUTPUT_HTML: the HTML file for the card
     """
-    paths = FilePaths(Path(local_image_path).name, remote_image_dir)
+    image_name = Path(local_image_path).name
+    paths = FilePaths(image_name, remote_image_dir, output_image_dir, output_html_dir)
     image = get_image_with_banner(local_image_path, banner_path, banner_padding)
     if padding:
         image = pad_image(image, padding, padding, padding, padding)
