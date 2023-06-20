@@ -9,7 +9,7 @@ from pathlib import Path
 from urllib.parse import urljoin
 
 PROJECT = Path(__file__, "..", "..").resolve()
-HTML_TEMPLATE = PROJECT / "resources" / "template.html"
+HTML_TEMPLATE = PROJECT / "social_media_card" / "resources" / "template.html"
 
 
 def _twitterize_filename(filename: str | Path) -> str:
