@@ -1,3 +1,9 @@
+## 1.0.1 (2023-06-20)
+
+### Fix
+
+- false fix to trigger ci workflow update
+
 ## 1.0.0 (2023-06-19)
 
 ### Feat
