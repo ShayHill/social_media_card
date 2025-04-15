@@ -8,8 +8,8 @@ import dataclasses
 from pathlib import Path
 from urllib.parse import urljoin
 
-PROJECT = Path(__file__, "..", "..").resolve()
-HTML_TEMPLATE = PROJECT / "social_media_card" / "resources" / "template.html"
+PROJECT = Path(__file__).parents[2]
+HTML_TEMPLATE = PROJECT / "binaries" / "resources" / "template.html"
 
 
 def _twitterize_filename(filename: str | Path) -> str:

@@ -8,8 +8,7 @@ import sys
 from social_media_card import write_social_media_card
 from social_media_card.paths import PROJECT, FilePaths
 
-_RESOURCES = PROJECT / "social_media_card" / "resources"
-
+_RESOURCES = PROJECT / "binaries" / "resources"
 
 def _github_demo_card():
     local_image_path = _RESOURCES / "example_image.jpg"
