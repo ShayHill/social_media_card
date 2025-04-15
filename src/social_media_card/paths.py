@@ -4,6 +4,8 @@
 :created: 2022-11-10
 """
 
+from __future__ import annotations
+
 import dataclasses
 from pathlib import Path
 from urllib.parse import urljoin

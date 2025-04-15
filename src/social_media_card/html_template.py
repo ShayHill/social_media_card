@@ -4,7 +4,6 @@
 :created: 2022-11-10
 """
 
-
 from datetime import datetime
 from string import Template
 

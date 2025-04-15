@@ -6,6 +6,8 @@ See example usage in example_create_card.py.
 :created: 2022-11-09
 """
 
+from __future__ import annotations
+
 from pathlib import Path
 
 from social_media_card.html_template import write_social_media_card_html

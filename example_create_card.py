@@ -3,6 +3,7 @@
 :author: Shay Hill
 :created: 2022-11-16
 """
+
 import sys
 
 from social_media_card import write_social_media_card
@@ -10,7 +11,8 @@ from social_media_card.paths import PROJECT, FilePaths
 
 _RESOURCES = PROJECT / "binaries" / "resources"
 
-def _github_demo_card():
+
+def _github_demo_card() -> None:
     local_image_path = _RESOURCES / "example_image.jpg"
     remote_image_dir = "https://somesite.com/images/"
     output_image_dir = PROJECT / "binaries" / "output_images"

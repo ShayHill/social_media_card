@@ -4,11 +4,16 @@
 :created: 2022-11-10
 """
 
-from pathlib import Path
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
 
 from PIL import Image
 
-from social_media_card.paths import FilePaths
+if TYPE_CHECKING:
+    from pathlib import Path
+
+    from social_media_card.paths import FilePaths
 
 
 def pad_image(
@@ -86,8 +91,7 @@ def _add_banner_layer(image: Image.Image, banner: Image.Image) -> Image.Image:
     banner_layer = Image.new("RGBA", image.size, (255, 255, 255, 0))
     banner_layer.paste(banner.convert("RGBA"))
     with_banner = Image.alpha_composite(image.convert("RGBA"), banner_layer)
-    with_banner = with_banner.convert(image.mode)
-    return with_banner
+    return with_banner.convert(image.mode)
 
 
 def get_image_with_banner(
@@ -113,8 +117,9 @@ def get_image_with_banner(
     banner = Image.open(banner_path)
     banner_scalar = image.width / banner.width
     banner_height = round(banner.height * banner_scalar)
-    banner = banner.resize((image.width, banner_height))
-
+    banner = banner.resize(  # pyright: ignore[reportUnknownMemberType]
+        (image.width, banner_height)
+    )
     if banner_padding is None:
         image = pad_image(image, 0, banner_height)
     elif banner_padding:
