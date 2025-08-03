@@ -11,7 +11,8 @@ from pathlib import Path
 from urllib.parse import urljoin
 
 PROJECT = Path(__file__).parents[2]
-HTML_TEMPLATE = PROJECT / "binaries" / "resources" / "template.html"
+SRC_DIR = Path(__file__).parent
+HTML_TEMPLATE = SRC_DIR / "BIN" / "template.html"
 
 
 def _twitterize_filename(filename: str | Path) -> str:
